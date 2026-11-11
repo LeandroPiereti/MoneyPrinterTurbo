@@ -506,6 +506,8 @@
     "Configure Providers": "Cấu hình",
     "Active Provider": "Đang sử dụng: {provider}",
     "No Configured Providers": "Chưa có nhà cung cấp nào được cấu hình.",
-    "Provider Configuration Changed": "Cấu hình đã thay đổi. Hãy kiểm tra cài đặt của nhà cung cấp này."
+    "Provider Configuration Changed": "Cấu hình đã thay đổi. Hãy kiểm tra cài đặt của nhà cung cấp này.",
+    "Loading Interface": "Đang tải MoneyPrinterTurbo… Nếu thông báo này không biến mất, hãy kiểm tra lỗi trong cửa sổ terminal.",
+    "LLM Insufficient Credit Error": "Tài khoản đã hết tín dụng API. API được tính phí riêng với các gói chat như Claude Pro hoặc ChatGPT Plus: hãy nạp thêm tín dụng trên trang thanh toán của nhà cung cấp hoặc chọn nhà cung cấp theo gói đăng ký. Chi tiết: {error}"
   }
 }

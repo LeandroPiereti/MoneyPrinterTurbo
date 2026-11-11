@@ -765,6 +765,8 @@
     "Configure Providers": "配置",
     "Active Provider": "正在使用：{provider}",
     "No Configured Providers": "尚未配置服务商。",
-    "Provider Configuration Changed": "配置已更改，请检查该服务商的设置。"
+    "Provider Configuration Changed": "配置已更改，请检查该服务商的设置。",
+    "Loading Interface": "正在加载 MoneyPrinterTurbo…… 如果此提示一直不消失，请查看终端窗口中的错误信息。",
+    "LLM Insufficient Credit Error": "账户的 API 余额不足。API 调用与 Claude Pro、ChatGPT Plus 等聊天订阅分开计费：请在服务商的账单页面充值，或改用基于订阅的服务商。详情：{error}"
   }
 }

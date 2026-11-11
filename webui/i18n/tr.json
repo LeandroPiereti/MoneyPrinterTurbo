@@ -506,6 +506,8 @@
     "Configure Providers": "Yapılandır",
     "Active Provider": "Kullanımda: {provider}",
     "No Configured Providers": "Henüz yapılandırılmış sağlayıcı yok.",
-    "Provider Configuration Changed": "Yapılandırma değişti. Bu sağlayıcının ayarlarını gözden geçirin."
+    "Provider Configuration Changed": "Yapılandırma değişti. Bu sağlayıcının ayarlarını gözden geçirin.",
+    "Loading Interface": "MoneyPrinterTurbo yükleniyor… Bu mesaj kaybolmazsa terminal penceresindeki hatalara bakın.",
+    "LLM Insufficient Credit Error": "Hesabınızda API kredisi kalmadı. API kullanımı, Claude Pro veya ChatGPT Plus gibi sohbet aboneliklerinden ayrı faturalandırılır: sağlayıcının faturalandırma sayfasından kredi ekleyin veya abonelik tabanlı bir sağlayıcı seçin. Ayrıntılar: {error}"
   }
 }

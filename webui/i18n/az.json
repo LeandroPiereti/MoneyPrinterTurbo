@@ -506,6 +506,8 @@
     "Configure Providers": "Tənzimlə",
     "Active Provider": "İstifadədə: {provider}",
     "No Configured Providers": "Hələ tənzimlənmiş provayder yoxdur.",
-    "Provider Configuration Changed": "Parametrlər dəyişib. Bu provayderin parametrlərini yoxlayın."
+    "Provider Configuration Changed": "Parametrlər dəyişib. Bu provayderin parametrlərini yoxlayın.",
+    "Loading Interface": "MoneyPrinterTurbo yüklənir… Bu mesaj itməzsə, terminal pəncərəsində xətalara baxın.",
+    "LLM Insufficient Credit Error": "Hesabınızda API krediti qalmayıb. API istifadəsi Claude Pro və ya ChatGPT Plus kimi çat abunələrindən ayrıca ödənilir: provayderin ödəniş səhifəsində kredit əlavə edin və ya abunəyə əsaslanan provayder seçin. Ətraflı: {error}"
   }
 }

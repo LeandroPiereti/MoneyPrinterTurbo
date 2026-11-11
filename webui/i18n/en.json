@@ -765,6 +765,8 @@
     "Configure Providers": "Configure",
     "Active Provider": "In use: {provider}",
     "No Configured Providers": "No providers configured yet.",
-    "Provider Configuration Changed": "Configuration changed. Review this provider in its settings."
+    "Provider Configuration Changed": "Configuration changed. Review this provider in its settings.",
+    "Loading Interface": "Loading MoneyPrinterTurbo… If this message does not go away, check the terminal window for errors.",
+    "LLM Insufficient Credit Error": "Your account has no API credits left. API usage is billed separately from chat subscriptions such as Claude Pro or ChatGPT Plus: add credits on the provider's billing page, or choose a subscription-based provider. Details: {error}"
   }
 }

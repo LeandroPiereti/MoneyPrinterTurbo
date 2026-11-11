@@ -506,6 +506,8 @@
     "Configure Providers": "Konfigurasi",
     "Active Provider": "Sedang digunakan: {provider}",
     "No Configured Providers": "Belum ada penyedia yang dikonfigurasi.",
-    "Provider Configuration Changed": "Konfigurasi berubah. Periksa pengaturan penyedia ini."
+    "Provider Configuration Changed": "Konfigurasi berubah. Periksa pengaturan penyedia ini.",
+    "Loading Interface": "Memuat MoneyPrinterTurbo… Jika pesan ini tidak hilang, periksa jendela terminal untuk melihat galat.",
+    "LLM Insufficient Credit Error": "Akun Anda kehabisan kredit API. Penggunaan API ditagih terpisah dari langganan chat seperti Claude Pro atau ChatGPT Plus: tambahkan kredit di halaman penagihan penyedia, atau pilih penyedia berbasis langganan. Detail: {error}"
   }
 }

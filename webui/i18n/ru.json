@@ -506,6 +506,8 @@
     "Configure Providers": "Настроить",
     "Active Provider": "Используется: {provider}",
     "No Configured Providers": "Пока нет настроенных провайдеров.",
-    "Provider Configuration Changed": "Конфигурация изменилась. Проверьте настройки этого провайдера."
+    "Provider Configuration Changed": "Конфигурация изменилась. Проверьте настройки этого провайдера.",
+    "Loading Interface": "Загрузка MoneyPrinterTurbo… Если это сообщение не исчезает, проверьте ошибки в окне терминала.",
+    "LLM Insufficient Credit Error": "На счёте закончились кредиты API. API оплачивается отдельно от чат-подписок, таких как Claude Pro или ChatGPT Plus: пополните баланс на странице оплаты провайдера или выберите провайдера с подпиской. Подробности: {error}"
   }
 }

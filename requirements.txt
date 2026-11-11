@@ -8,6 +8,9 @@ streamlit-tour==1.1.0
 edge_tts==7.3.1
 fastapi==0.136.3
 uvicorn==0.32.1
+# websockets 16.1 with uvicorn 0.32.1 can leave the WebUI blank on Windows;
+# keep the version uv.lock is tested with until uvicorn is upgraded.
+websockets==16.0
 openai==2.24.0
 faster-whisper==1.1.0
 # faster-whisper passes metadata_errors to av.open(), which PyAV 19 removed

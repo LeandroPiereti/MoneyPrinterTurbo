@@ -805,6 +805,16 @@ def tr(key):
     return locales.get("en", {}).get("Translation", {}).get(key, key)
 
 
+# A blank page gives users nothing to act on when the first render stalls (for
+# example a broken websocket dependency after an update). Show a short notice
+# on the first render of each session and clear it once the page is complete;
+# later reruns skip it so widget interactions do not flash the message.
+_initial_loading_notice = None
+if not st.session_state.get("_ui_rendered_once"):
+    _initial_loading_notice = st.empty()
+    _initial_loading_notice.info(tr("Loading Interface"), icon=":material/hourglass_top:")
+
+
 # -----------------------------------------------------------------------------
 # 任务管理：历史扫描、运行状态、参数恢复与列表交互
 # -----------------------------------------------------------------------------
@@ -2373,6 +2383,16 @@ def format_llm_connection_error(provider_id, base_url, error):
         if status_match:
             return tr(f"{message_prefix}.http_error").format(status=status_match[1])
     normalized_error = error_text.lower()
+    # Exhausted API credit is the most common failure for new users, who often
+    # expect a chat subscription (Claude Pro, ChatGPT Plus) to cover API calls.
+    insufficient_credit_markers = (
+        "credit balance is too low",
+        "insufficient_quota",
+        "exceeded your current quota",
+        "insufficient balance",
+    )
+    if any(marker in normalized_error for marker in insufficient_credit_markers):
+        return tr("LLM Insufficient Credit Error").format(error=error_text)
     authentication_markers = (
         "401",
         "authentication",
@@ -9504,3 +9524,6 @@ def _render_application():
 
 
 _render_application()
+if _initial_loading_notice is not None:
+    _initial_loading_notice.empty()
+st.session_state["_ui_rendered_once"] = True
