@@ -17,6 +17,7 @@ from app.config import config
 from app.models import const
 from app.models.schema import VideoConcatMode, VideoParams
 from app.services import bgm as bgm_service
+from app.services import bumper as bumper_service
 from app.services import (
     codex_image,
     codex_oauth,
@@ -1165,6 +1166,16 @@ def generate_final_videos(
                     "video_index": index,
                 }
             )
+
+        bumper_position = getattr(params, "bumper_position", "none") or "none"
+        if bumper_position != "none" and getattr(params, "bumper_file", ""):
+            logger.info(f"\n\n## attaching bumper: {index} => {final_video_path}")
+            if not bumper_service.attach_bumper(
+                final_video_path, params.bumper_file, bumper_position
+            ):
+                # The narrated video is already complete; keep it and report
+                # that the intro/outro could not be joined.
+                warnings.append({"code": "bumper_failed", "video_index": index})
 
         final_video_paths.append(final_video_path)
         combined_video_paths.append(combined_video_path)

@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Dein Konto hat kein API-Guthaben mehr. Die API wird getrennt von Chat-Abos wie Claude Pro oder ChatGPT Plus abgerechnet: Lade Guthaben auf der Abrechnungsseite des Anbieters auf oder wähle einen abobasierten Anbieter. Details: {error}",
     "Apply Shorts Preset": "Shorts-Stil anwenden",
     "Apply Shorts Preset Help": "Hochformat 9:16, Schnitte alle 3 Sekunden, Bilder in Skriptreihenfolge, größere zentrierte Untertitel und Hintergrundmusik. Skript und Quellen bleiben erhalten.",
-    "Shorts Preset Applied": "Shorts-Stil angewendet."
+    "Shorts Preset Applied": "Shorts-Stil angewendet.",
+    "Bumper Video": "Intro / Outro",
+    "Bumper Video Help": "Füge jedem erzeugten Video einen eigenen Clip hinzu (Kanal-Intro, „Liken und abonnieren“-Outro …), mit weicher Überblendung. Er wird ohne Zuschneiden ins Bild eingepasst.",
+    "Bumper Upload": "Clip hochladen (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Clip",
+    "Bumper File Empty": "Kein Clip",
+    "Bumper Position": "Position",
+    "Bumper Position None": "Aus",
+    "Bumper Position Start": "Am Anfang",
+    "Bumper Position End": "Am Ende",
+    "Bumper Position Both": "Am Anfang und am Ende",
+    "Bumper Upload Failed": "Datei konnte nicht gespeichert werden. Verwende ein MP4-, MOV-, M4V-, MKV- oder WEBM-Video.",
+    "Bumper Failed Warning": "Video {index}: Intro/Outro konnte nicht angefügt werden; das Video wurde ohne gespeichert."
   }
 }

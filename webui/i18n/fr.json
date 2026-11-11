@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Votre compte n'a plus de crédits API. L'API est facturée séparément des abonnements de chat comme Claude Pro ou ChatGPT Plus : ajoutez des crédits sur la page de facturation du fournisseur ou choisissez un fournisseur par abonnement. Détails : {error}",
     "Apply Shorts Preset": "Appliquer le style Shorts",
     "Apply Shorts Preset Help": "Vertical 9:16, plans de 3 secondes, visuels dans l'ordre du script, sous-titres centrés plus grands et musique de fond. Votre script et vos sources sont conservés.",
-    "Shorts Preset Applied": "Style Shorts appliqué."
+    "Shorts Preset Applied": "Style Shorts appliqué.",
+    "Bumper Video": "Générique d'ouverture / de fin",
+    "Bumper Video Help": "Ajoutez votre propre vidéo (ouverture de la chaîne, fin « likez et abonnez-vous »…) à chaque vidéo générée, avec un fondu enchaîné. Elle est adaptée au cadre sans recadrage.",
+    "Bumper Upload": "Importer un générique (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Générique",
+    "Bumper File Empty": "Aucun",
+    "Bumper Position": "Position",
+    "Bumper Position None": "Désactivé",
+    "Bumper Position Start": "Au début",
+    "Bumper Position End": "À la fin",
+    "Bumper Position Both": "Au début et à la fin",
+    "Bumper Upload Failed": "Impossible d'enregistrer ce fichier. Utilisez une vidéo MP4, MOV, M4V, MKV ou WEBM.",
+    "Bumper Failed Warning": "Vidéo {index} : le générique n'a pas pu être ajouté, la vidéo a été enregistrée sans lui."
   }
 }

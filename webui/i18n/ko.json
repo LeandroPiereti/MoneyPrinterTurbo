@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "계정의 API 크레딧이 부족합니다. API 사용료는 Claude Pro, ChatGPT Plus 같은 채팅 구독과 별도로 청구됩니다. 제공업체 결제 페이지에서 크레딧을 충전하거나 구독 기반 제공업체를 선택하세요. 자세히: {error}",
     "Apply Shorts Preset": "쇼츠 스타일 적용",
     "Apply Shorts Preset Help": "세로 9:16, 3초 컷, 대본 순서에 맞춘 영상, 가운데 큰 자막과 배경 음악을 적용합니다. 대본과 소스는 그대로 유지됩니다.",
-    "Shorts Preset Applied": "쇼츠 스타일이 적용되었습니다."
+    "Shorts Preset Applied": "쇼츠 스타일이 적용되었습니다.",
+    "Bumper Video": "인트로 / 아웃트로",
+    "Bumper Video Help": "내 영상(채널 인트로, \"좋아요·구독\" 아웃트로 등)을 생성되는 모든 영상에 부드러운 전환으로 붙입니다. 잘림 없이 화면에 맞춰집니다.",
+    "Bumper Upload": "클립 업로드(MP4, MOV, MKV, WEBM)",
+    "Bumper File": "클립",
+    "Bumper File Empty": "없음",
+    "Bumper Position": "위치",
+    "Bumper Position None": "끄기",
+    "Bumper Position Start": "시작",
+    "Bumper Position End": "끝",
+    "Bumper Position Both": "시작과 끝",
+    "Bumper Upload Failed": "파일을 저장할 수 없습니다. MP4, MOV, M4V, MKV 또는 WEBM 영상을 사용하세요.",
+    "Bumper Failed Warning": "영상 {index}: 인트로/아웃트로를 붙이지 못해 없이 저장했습니다."
   }
 }

@@ -770,6 +770,18 @@
     "LLM Insufficient Credit Error": "账户的 API 余额不足。API 调用与 Claude Pro、ChatGPT Plus 等聊天订阅分开计费：请在服务商的账单页面充值，或改用基于订阅的服务商。详情：{error}",
     "Apply Shorts Preset": "应用短视频风格",
     "Apply Shorts Preset Help": "竖屏 9:16、每 3 秒切换画面、素材按文案顺序、字幕居中放大并添加背景音乐。文案和素材来源保持不变。",
-    "Shorts Preset Applied": "已应用短视频风格。"
+    "Shorts Preset Applied": "已应用短视频风格。",
+    "Bumper Video": "片头 / 片尾",
+    "Bumper Video Help": "将你自己的视频（频道片头、“点赞订阅”片尾等）以平滑淡入淡出拼接到每个生成的视频中，按画面等比缩放、不裁切。",
+    "Bumper Upload": "上传片头/片尾（MP4、MOV、MKV、WEBM）",
+    "Bumper File": "片头/片尾文件",
+    "Bumper File Empty": "不使用",
+    "Bumper Position": "位置",
+    "Bumper Position None": "关闭",
+    "Bumper Position Start": "开头",
+    "Bumper Position End": "结尾",
+    "Bumper Position Both": "开头和结尾",
+    "Bumper Upload Failed": "无法保存该文件，请使用 MP4、MOV、M4V、MKV 或 WEBM 视频。",
+    "Bumper Failed Warning": "视频 {index}：片头/片尾拼接失败，已保存不含片头/片尾的视频。"
   }
 }

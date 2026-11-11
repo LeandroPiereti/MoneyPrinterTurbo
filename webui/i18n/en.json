@@ -770,6 +770,18 @@
     "LLM Insufficient Credit Error": "Your account has no API credits left. API usage is billed separately from chat subscriptions such as Claude Pro or ChatGPT Plus: add credits on the provider's billing page, or choose a subscription-based provider. Details: {error}",
     "Apply Shorts Preset": "Apply Shorts style",
     "Apply Shorts Preset Help": "Vertical 9:16, 3-second cuts, visuals in script order, centered larger subtitles and background music. Your script and sources are kept.",
-    "Shorts Preset Applied": "Shorts style applied."
+    "Shorts Preset Applied": "Shorts style applied.",
+    "Bumper Video": "Opening / closing clip",
+    "Bumper Video Help": "Join a clip of yours (channel intro, \"like and subscribe\" ending…) to every generated video, with a smooth crossfade. It is scaled into the video frame without cropping.",
+    "Bumper Upload": "Upload a clip (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Clip",
+    "Bumper File Empty": "No clip",
+    "Bumper Position": "Position",
+    "Bumper Position None": "Off",
+    "Bumper Position Start": "At the start",
+    "Bumper Position End": "At the end",
+    "Bumper Position Both": "At the start and the end",
+    "Bumper Upload Failed": "Could not save this clip. Use an MP4, MOV, M4V, MKV or WEBM file.",
+    "Bumper Failed Warning": "Video {index}: the opening/closing clip could not be joined, so the video was saved without it."
   }
 }

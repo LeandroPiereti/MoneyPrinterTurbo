@@ -141,6 +141,10 @@ class VideoParams(BaseModel):
     # Sonilo 专用字段以兼容旧任务记录和现有 CLI 参数。
     video_music_prompt: str = Field(default="", max_length=2000)
     sonilo_bgm_prompt: str = Field(default="", max_length=2000)
+    # Intro/outro clip stored under storage/bumpers (bare file name only) and
+    # joined to every final video with a crossfade. "none" keeps it off.
+    bumper_file: Optional[str] = Field(default="", max_length=255)
+    bumper_position: Literal["none", "start", "end", "both"] = "none"
 
     subtitle_enabled: Optional[bool] = True
     subtitle_position: Optional[str] = config.ui.get(

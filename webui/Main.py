@@ -46,6 +46,7 @@ from app.models.schema import (
     VideoTransitionMode,
 )
 from app.services import bgm as bgm_service
+from app.services import bumper as bumper_service
 from app.services import material_upload as material_upload_service
 from app.services import (
     cache_manager,
@@ -298,6 +299,7 @@ PRESET_EXCLUDED_PARAM_KEYS = frozenset(
         "video_materials",
         "custom_audio_file",
         "bgm_file",
+        "bumper_file",
     }
 )
 # 密钥按配置项名称后缀识别。新增 Provider 只要沿用现有命名，就会自动进入
@@ -1658,6 +1660,16 @@ def _apply_restored_params(params):
             "preset_song_select", os.path.basename(str(params["bgm_file"]))
         )
     st.session_state["custom_bgm_file_input"] = params.get("bgm_file") or ""
+    if "bumper_position" in params:
+        # Presets leave bumper_file out (it is a local upload); keep the
+        # current selection and only take the position from them.
+        if params.get("bumper_file"):
+            _set_stable_widget_value("bumper_file_select", params.get("bumper_file"))
+        position = params.get("bumper_position") or "none"
+        if position in BUMPER_POSITION_LABELS:
+            _set_stable_widget_value(
+                "bumper_position_select", tr(BUMPER_POSITION_LABELS[position])
+            )
     st.session_state["sonilo_bgm_prompt_input"] = (
         params.get("video_music_prompt") or params.get("sonilo_bgm_prompt") or ""
     )
@@ -2192,6 +2204,10 @@ def _render_generation_task_snapshot(task_id, task):
                 tr("Sonilo BGM Fallback Warning").format(
                     index=warning.get("video_index", "")
                 )
+            )
+        elif isinstance(warning, Mapping) and warning.get("code") == "bumper_failed":
+            st.warning(
+                tr("Bumper Failed Warning").format(index=warning.get("video_index", ""))
             )
         elif (
             isinstance(warning, Mapping)
@@ -6112,6 +6128,67 @@ def _render_script_settings(panel, params):
             )
 
 
+BUMPER_POSITION_LABELS = {
+    "none": "Bumper Position None",
+    "start": "Bumper Position Start",
+    "end": "Bumper Position End",
+    "both": "Bumper Position Both",
+}
+
+
+def _render_bumper_settings(params):
+    """Opening/closing clip joined to every generated video with a crossfade."""
+    with st.expander(tr("Bumper Video"), expanded=False):
+        st.caption(tr("Bumper Video Help"))
+        uploaded = st.file_uploader(
+            tr("Bumper Upload"),
+            type=[ext.lstrip(".") for ext in bumper_service.BUMPER_EXTENSIONS],
+            key="bumper_uploader",
+        )
+        if uploaded is not None and st.session_state.get("bumper_upload_id") != uploaded.file_id:
+            st.session_state["bumper_upload_id"] = uploaded.file_id
+            try:
+                saved_name = bumper_service.save_bumper(uploaded.name, uploaded.getvalue())
+            except Exception as exc:
+                logger.warning(f"failed to save bumper upload: {exc}")
+                st.error(tr("Bumper Upload Failed"))
+            else:
+                _set_stable_widget_value("bumper_file_select", saved_name)
+                _set_runtime_config("ui", "bumper_file", saved_name)
+                if _saved_ui_choice("bumper_position", list(BUMPER_POSITION_LABELS), "none") == "none":
+                    _set_stable_widget_value(
+                        "bumper_position_select", tr(BUMPER_POSITION_LABELS["end"])
+                    )
+                    _set_runtime_config("ui", "bumper_position", "end")
+
+        # Options are the display labels themselves (the widget key is already
+        # per-language), mapped back to stored values below.
+        empty_label = tr("Bumper File Empty")
+        names = bumper_service.list_bumpers()
+        saved_bumper = _saved_ui_text("bumper_file")
+        selected = stable_selectbox(
+            tr("Bumper File"),
+            options=[empty_label] + names,
+            default_value=saved_bumper if saved_bumper in names else empty_label,
+            key="bumper_file_select",
+        )
+        params.bumper_file = "" if selected == empty_label else selected
+        _set_runtime_config("ui", "bumper_file", params.bumper_file)
+        position_labels = {tr(label): value for value, label in BUMPER_POSITION_LABELS.items()}
+        saved_position = _saved_ui_choice("bumper_position", list(BUMPER_POSITION_LABELS), "none")
+        chosen_label = stable_selectbox(
+            tr("Bumper Position"),
+            options=list(position_labels),
+            default_value=tr(BUMPER_POSITION_LABELS[saved_position]),
+            key="bumper_position_select",
+            disabled=not params.bumper_file,
+        )
+        params.bumper_position = position_labels.get(chosen_label, "none")
+        if not params.bumper_file:
+            params.bumper_position = "none"
+        _set_runtime_config("ui", "bumper_position", params.bumper_position)
+
+
 def _render_video_settings(panel, params):
     """渲染视频设置并返回本次选择的本地素材。"""
     uploaded_files = []
@@ -6479,6 +6556,8 @@ def _render_video_settings(panel, params):
             _set_runtime_config(
                 "app", "video_clip_concurrency", selected_clip_concurrency
             )
+
+            _render_bumper_settings(params)
 
             if params.video_source == "loomloom":
                 _render_loomloom_video_settings(params)

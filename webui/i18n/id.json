@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Akun Anda kehabisan kredit API. Penggunaan API ditagih terpisah dari langganan chat seperti Claude Pro atau ChatGPT Plus: tambahkan kredit di halaman penagihan penyedia, atau pilih penyedia berbasis langganan. Detail: {error}",
     "Apply Shorts Preset": "Terapkan gaya Shorts",
     "Apply Shorts Preset Help": "Vertikal 9:16, potongan 3 detik, visual sesuai urutan naskah, subtitle lebih besar di tengah, dan musik latar. Naskah dan sumber Anda tetap dipertahankan.",
-    "Shorts Preset Applied": "Gaya Shorts diterapkan."
+    "Shorts Preset Applied": "Gaya Shorts diterapkan.",
+    "Bumper Video": "Klip pembuka / penutup",
+    "Bumper Video Help": "Gabungkan video Anda (pembuka kanal, penutup \"like dan subscribe\"…) ke setiap video yang dibuat, dengan transisi halus. Klip disesuaikan ke bingkai tanpa dipotong.",
+    "Bumper Upload": "Unggah klip (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Klip",
+    "Bumper File Empty": "Tidak ada",
+    "Bumper Position": "Posisi",
+    "Bumper Position None": "Mati",
+    "Bumper Position Start": "Di awal",
+    "Bumper Position End": "Di akhir",
+    "Bumper Position Both": "Di awal dan akhir",
+    "Bumper Upload Failed": "File tidak dapat disimpan. Gunakan video MP4, MOV, M4V, MKV, atau WEBM.",
+    "Bumper Failed Warning": "Video {index}: klip pembuka/penutup gagal digabung, jadi video disimpan tanpanya."
   }
 }

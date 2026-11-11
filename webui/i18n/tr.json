@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Hesabınızda API kredisi kalmadı. API kullanımı, Claude Pro veya ChatGPT Plus gibi sohbet aboneliklerinden ayrı faturalandırılır: sağlayıcının faturalandırma sayfasından kredi ekleyin veya abonelik tabanlı bir sağlayıcı seçin. Ayrıntılar: {error}",
     "Apply Shorts Preset": "Shorts stilini uygula",
     "Apply Shorts Preset Help": "Dikey 9:16, 3 saniyelik kesmeler, senaryo sırasına göre görüntüler, ortada daha büyük altyazılar ve arka plan müziği. Senaryonuz ve kaynaklarınız korunur.",
-    "Shorts Preset Applied": "Shorts stili uygulandı."
+    "Shorts Preset Applied": "Shorts stili uygulandı.",
+    "Bumper Video": "Açılış / kapanış klibi",
+    "Bumper Video Help": "Kendi videonuzu (kanal açılışı, \"beğen ve abone ol\" kapanışı…) oluşturulan her videoya yumuşak bir geçişle ekleyin. Kırpılmadan kadraja sığdırılır.",
+    "Bumper Upload": "Klip yükle (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Klip",
+    "Bumper File Empty": "Yok",
+    "Bumper Position": "Konum",
+    "Bumper Position None": "Kapalı",
+    "Bumper Position Start": "Başta",
+    "Bumper Position End": "Sonda",
+    "Bumper Position Both": "Başta ve sonda",
+    "Bumper Upload Failed": "Dosya kaydedilemedi. MP4, MOV, M4V, MKV veya WEBM video kullanın.",
+    "Bumper Failed Warning": "Video {index}: açılış/kapanış klibi eklenemedi, video klipsiz kaydedildi."
   }
 }

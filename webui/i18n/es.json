@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Tu cuenta no tiene créditos de API. El uso de la API se factura aparte de las suscripciones de chat como Claude Pro o ChatGPT Plus: añade créditos en la página de facturación del proveedor o elige un proveedor basado en suscripción. Detalles: {error}",
     "Apply Shorts Preset": "Aplicar estilo Shorts",
     "Apply Shorts Preset Help": "Vertical 9:16, cortes de 3 segundos, imágenes en el orden del guion, subtítulos más grandes y centrados y música de fondo. Se conservan tu guion y tus fuentes.",
-    "Shorts Preset Applied": "Estilo Shorts aplicado."
+    "Shorts Preset Applied": "Estilo Shorts aplicado.",
+    "Bumper Video": "Cortinilla de apertura / cierre",
+    "Bumper Video Help": "Une un video tuyo (apertura del canal, cierre con \"dale like y suscríbete\"…) a todos los videos generados, con una transición suave. Se ajusta al encuadre sin recortes.",
+    "Bumper Upload": "Subir cortinilla (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Cortinilla",
+    "Bumper File Empty": "Ninguna",
+    "Bumper Position": "Posición",
+    "Bumper Position None": "Desactivada",
+    "Bumper Position Start": "Al inicio",
+    "Bumper Position End": "Al final",
+    "Bumper Position Both": "Al inicio y al final",
+    "Bumper Upload Failed": "No se pudo guardar el archivo. Usa un video MP4, MOV, M4V, MKV o WEBM.",
+    "Bumper Failed Warning": "Video {index}: no se pudo unir la cortinilla, así que se guardó sin ella."
   }
 }

@@ -511,6 +511,18 @@
     "LLM Insufficient Credit Error": "Il tuo account non ha più crediti API. L'API è fatturata separatamente dagli abbonamenti chat come Claude Pro o ChatGPT Plus: aggiungi crediti nella pagina di fatturazione del provider o scegli un provider in abbonamento. Dettagli: {error}",
     "Apply Shorts Preset": "Applica stile Shorts",
     "Apply Shorts Preset Help": "Verticale 9:16, tagli di 3 secondi, immagini nell'ordine del copione, sottotitoli più grandi al centro e musica di sottofondo. Copione e fonti restano invariati.",
-    "Shorts Preset Applied": "Stile Shorts applicato."
+    "Shorts Preset Applied": "Stile Shorts applicato.",
+    "Bumper Video": "Sigla di apertura / chiusura",
+    "Bumper Video Help": "Aggiungi un tuo video (apertura del canale, chiusura \"metti like e iscriviti\"…) a ogni video generato, con una dissolvenza morbida. Viene adattato all'inquadratura senza tagli.",
+    "Bumper Upload": "Carica sigla (MP4, MOV, MKV, WEBM)",
+    "Bumper File": "Sigla",
+    "Bumper File Empty": "Nessuna",
+    "Bumper Position": "Posizione",
+    "Bumper Position None": "Disattivata",
+    "Bumper Position Start": "All'inizio",
+    "Bumper Position End": "Alla fine",
+    "Bumper Position Both": "All'inizio e alla fine",
+    "Bumper Upload Failed": "Impossibile salvare il file. Usa un video MP4, MOV, M4V, MKV o WEBM.",
+    "Bumper Failed Warning": "Video {index}: impossibile aggiungere la sigla, il video è stato salvato senza."
   }
 }
