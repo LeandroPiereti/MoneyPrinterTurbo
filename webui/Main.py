@@ -3251,28 +3251,33 @@ def _apply_pending_settings_preset():
     return True
 
 
-SHORTS_PRESET_OVERRIDES = {
-    "video_aspect": VideoAspect.portrait.value,
-    "video_clip_duration": 3,
-    "match_materials_to_script": True,
-    "bgm_type": "random",
-    "bgm_volume": 0.2,
-    "subtitle_enabled": True,
-    "subtitle_position": "center",
-    "font_size": 75,
-}
+def _apply_pending_shorts_preset():
+    """Apply the vertical short-video style before any widget renders.
 
-
-def _build_shorts_preset_params(current_params, ui_language):
-    """Current settings with the vertical short-video style applied on top.
-
-    Script, subject and source choices are kept so the preset only changes
-    the look and pacing of the video.
+    Only the look and pacing widgets change. Script, voice, sources and every
+    other setting stay as they are; a full parameter restore would also reset
+    the voice to whatever the voice list shows for an empty script.
     """
-    preset = dict(current_params)
-    preset.update(SHORTS_PRESET_OVERRIDES)
-    preset["font_name"] = default_subtitle_font(ui_language, get_all_fonts())
-    return VideoParams.model_validate(preset).model_dump(mode="json")
+    request = st.session_state.pop("shorts_preset_request", None)
+    if not request:
+        return False
+    video_source = request.get("video_source") or "pexels"
+    _set_stable_widget_value(
+        f"video_aspect_for_{video_source}", VideoAspect.portrait.value
+    )
+    _set_stable_widget_value("video_clip_duration_select", 3)
+    st.session_state["match_materials_to_script"] = True
+    _set_stable_widget_value("bgm_type_select", "random")
+    _set_stable_widget_value("bgm_volume_select", 0.2)
+    st.session_state["subtitle_enabled_checkbox"] = True
+    _set_stable_widget_value("subtitle_position_select", "center")
+    _set_stable_widget_value(
+        "font_name_select",
+        default_subtitle_font(request.get("ui_language"), get_all_fonts()),
+    )
+    st.session_state["font_size_slider"] = 75
+    logger.info("applied Shorts style preset")
+    return True
 
 
 def _render_settings_transfer(params):
@@ -3286,10 +3291,10 @@ def _render_settings_transfer(params):
             use_container_width=True,
             icon=":material/smartphone:",
         ):
-            st.session_state["settings_preset_payload"] = _build_shorts_preset_params(
-                params.model_dump(mode="json"),
-                st.session_state.get("ui_language"),
-            )
+            st.session_state["shorts_preset_request"] = {
+                "video_source": params.video_source,
+                "ui_language": st.session_state.get("ui_language"),
+            }
             st.rerun()
         preset_payload = _build_settings_preset_payload(
             params.model_dump(mode="json"), config.project_version
@@ -9544,6 +9549,8 @@ def _render_application():
 
     if _apply_pending_settings_preset():
         st.success(tr("Settings Preset Imported"))
+    if _apply_pending_shorts_preset():
+        st.success(tr("Shorts Preset Applied"))
 
     restore_applied = _apply_pending_task_restore()
     restore_candidate_id = st.session_state.get("task_restore_candidate_id")

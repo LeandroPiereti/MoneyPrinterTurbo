@@ -510,6 +510,7 @@
     "Loading Interface": "MoneyPrinterTurbo yükleniyor… Bu mesaj kaybolmazsa terminal penceresindeki hatalara bakın.",
     "LLM Insufficient Credit Error": "Hesabınızda API kredisi kalmadı. API kullanımı, Claude Pro veya ChatGPT Plus gibi sohbet aboneliklerinden ayrı faturalandırılır: sağlayıcının faturalandırma sayfasından kredi ekleyin veya abonelik tabanlı bir sağlayıcı seçin. Ayrıntılar: {error}",
     "Apply Shorts Preset": "Shorts stilini uygula",
-    "Apply Shorts Preset Help": "Dikey 9:16, 3 saniyelik kesmeler, senaryo sırasına göre görüntüler, ortada daha büyük altyazılar ve arka plan müziği. Senaryonuz ve kaynaklarınız korunur."
+    "Apply Shorts Preset Help": "Dikey 9:16, 3 saniyelik kesmeler, senaryo sırasına göre görüntüler, ortada daha büyük altyazılar ve arka plan müziği. Senaryonuz ve kaynaklarınız korunur.",
+    "Shorts Preset Applied": "Shorts stili uygulandı."
   }
 }

@@ -510,6 +510,7 @@
     "Loading Interface": "Carregando o MoneyPrinterTurbo… Se esta mensagem não sumir, veja se há erros na janela do terminal.",
     "LLM Insufficient Credit Error": "Sua conta está sem créditos de API. O uso da API é cobrado à parte das assinaturas de chat, como Claude Pro ou ChatGPT Plus: adicione créditos na página de faturamento do provedor ou escolha um provedor por assinatura. Detalhes: {error}",
     "Apply Shorts Preset": "Aplicar estilo Shorts",
-    "Apply Shorts Preset Help": "Vertical 9:16, cortes de 3 segundos, imagens na ordem do roteiro, legendas maiores no centro e música de fundo. Seu roteiro e suas fontes são mantidos."
+    "Apply Shorts Preset Help": "Vertical 9:16, cortes de 3 segundos, imagens na ordem do roteiro, legendas maiores no centro e música de fundo. Seu roteiro e suas fontes são mantidos.",
+    "Shorts Preset Applied": "Estilo Shorts aplicado."
   }
 }
