@@ -392,7 +392,9 @@ def generate_terms(task_id, params, video_script):
         video_terms = llm.generate_terms(
             video_subject=params.video_subject,
             video_script=utils.remove_pause_tags(video_script),
-            amount=8 if params.match_materials_to_script else 5,
+            amount=llm.recommended_term_count(
+                video_script, params.match_materials_to_script
+            ),
             match_script_order=params.match_materials_to_script,
         )
     else:

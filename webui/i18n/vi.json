@@ -508,6 +508,8 @@
     "No Configured Providers": "Chưa có nhà cung cấp nào được cấu hình.",
     "Provider Configuration Changed": "Cấu hình đã thay đổi. Hãy kiểm tra cài đặt của nhà cung cấp này.",
     "Loading Interface": "Đang tải MoneyPrinterTurbo… Nếu thông báo này không biến mất, hãy kiểm tra lỗi trong cửa sổ terminal.",
-    "LLM Insufficient Credit Error": "Tài khoản đã hết tín dụng API. API được tính phí riêng với các gói chat như Claude Pro hoặc ChatGPT Plus: hãy nạp thêm tín dụng trên trang thanh toán của nhà cung cấp hoặc chọn nhà cung cấp theo gói đăng ký. Chi tiết: {error}"
+    "LLM Insufficient Credit Error": "Tài khoản đã hết tín dụng API. API được tính phí riêng với các gói chat như Claude Pro hoặc ChatGPT Plus: hãy nạp thêm tín dụng trên trang thanh toán của nhà cung cấp hoặc chọn nhà cung cấp theo gói đăng ký. Chi tiết: {error}",
+    "Apply Shorts Preset": "Áp dụng kiểu Shorts",
+    "Apply Shorts Preset Help": "Dọc 9:16, cắt cảnh mỗi 3 giây, hình ảnh theo thứ tự kịch bản, phụ đề lớn ở giữa và nhạc nền. Kịch bản và nguồn của bạn được giữ nguyên."
   }
 }

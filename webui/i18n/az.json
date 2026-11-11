@@ -508,6 +508,8 @@
     "No Configured Providers": "Hələ tənzimlənmiş provayder yoxdur.",
     "Provider Configuration Changed": "Parametrlər dəyişib. Bu provayderin parametrlərini yoxlayın.",
     "Loading Interface": "MoneyPrinterTurbo yüklənir… Bu mesaj itməzsə, terminal pəncərəsində xətalara baxın.",
-    "LLM Insufficient Credit Error": "Hesabınızda API krediti qalmayıb. API istifadəsi Claude Pro və ya ChatGPT Plus kimi çat abunələrindən ayrıca ödənilir: provayderin ödəniş səhifəsində kredit əlavə edin və ya abunəyə əsaslanan provayder seçin. Ətraflı: {error}"
+    "LLM Insufficient Credit Error": "Hesabınızda API krediti qalmayıb. API istifadəsi Claude Pro və ya ChatGPT Plus kimi çat abunələrindən ayrıca ödənilir: provayderin ödəniş səhifəsində kredit əlavə edin və ya abunəyə əsaslanan provayder seçin. Ətraflı: {error}",
+    "Apply Shorts Preset": "Shorts üslubunu tətbiq et",
+    "Apply Shorts Preset Help": "Şaquli 9:16, 3 saniyəlik kəsimlər, ssenari ardıcıllığı ilə görüntülər, ortada böyük altyazılar və fon musiqisi. Ssenariniz və mənbələriniz saxlanılır."
   }
 }

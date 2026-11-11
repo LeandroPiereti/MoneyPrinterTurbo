@@ -508,6 +508,8 @@
     "No Configured Providers": "Nessun fornitore ancora configurato.",
     "Provider Configuration Changed": "La configurazione è cambiata. Controlla le impostazioni di questo fornitore.",
     "Loading Interface": "Caricamento di MoneyPrinterTurbo… Se questo messaggio non scompare, controlla gli errori nella finestra del terminale.",
-    "LLM Insufficient Credit Error": "Il tuo account non ha più crediti API. L'API è fatturata separatamente dagli abbonamenti chat come Claude Pro o ChatGPT Plus: aggiungi crediti nella pagina di fatturazione del provider o scegli un provider in abbonamento. Dettagli: {error}"
+    "LLM Insufficient Credit Error": "Il tuo account non ha più crediti API. L'API è fatturata separatamente dagli abbonamenti chat come Claude Pro o ChatGPT Plus: aggiungi crediti nella pagina di fatturazione del provider o scegli un provider in abbonamento. Dettagli: {error}",
+    "Apply Shorts Preset": "Applica stile Shorts",
+    "Apply Shorts Preset Help": "Verticale 9:16, tagli di 3 secondi, immagini nell'ordine del copione, sottotitoli più grandi al centro e musica di sottofondo. Copione e fonti restano invariati."
   }
 }

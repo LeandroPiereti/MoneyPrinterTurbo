@@ -1037,6 +1037,28 @@ def _extract_embedded_json(text: str, opening: str):
     raise ValueError("response contains no complete JSON value")
 
 
+MAX_RECOMMENDED_TERMS = 20
+
+
+def recommended_term_count(video_script: str, match_script_order: bool = False) -> int:
+    """How many stock-video search terms to request for a script.
+
+    Short scripts keep the historical 5 (or 8 in script order). Long scripts
+    get roughly one extra term per 60 words beyond 150 so a several-minute
+    video draws from more distinct footage instead of re-cutting the same
+    few clips. Scripts without spaces (Chinese, Japanese) count characters.
+    """
+    base = 8 if match_script_order else 5
+    text = utils.remove_pause_tags(video_script or "").strip()
+    if not text:
+        return base
+    words = len(text.split())
+    if words * 20 < len(text):
+        words = len(text) // 2
+    extra = max(0, (words - 150) // 60)
+    return min(MAX_RECOMMENDED_TERMS, base + extra)
+
+
 def generate_terms(
     video_subject: str,
     video_script: str,

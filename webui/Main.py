@@ -214,6 +214,25 @@ DEFAULT_SUBTITLE_SETTINGS = {
     "subtitle_background_color": "#000000",
     "rounded_subtitle_background": False,
 }
+# The CJK default font renders Latin text with Chinese-style glyph shapes. For
+# UI languages written in a script Be Vietnam Pro fully covers, prefer it as
+# the default subtitle font; an explicit user choice always wins.
+LATIN_SUBTITLE_FONT = "BeVietnamPro-Bold.ttf"
+LATIN_SUBTITLE_FONT_LANGUAGES = frozenset(
+    {"en", "pt", "es", "fr", "de", "it", "id", "tr", "vi", "ca"}
+)
+
+
+def default_subtitle_font(ui_language, available_fonts=None):
+    """Return the default subtitle font for a UI language code such as "pt"."""
+    base_language = str(ui_language or "").split("-")[0].split("_")[0].lower()
+    if base_language in LATIN_SUBTITLE_FONT_LANGUAGES and (
+        available_fonts is None or LATIN_SUBTITLE_FONT in available_fonts
+    ):
+        return LATIN_SUBTITLE_FONT
+    return DEFAULT_SUBTITLE_SETTINGS["font_name"]
+
+
 LOCAL_MATERIAL_EXTENSIONS = set(material_upload_service.SUPPORTED_MATERIAL_EXTENSIONS)
 CUSTOM_AUDIO_EXTENSIONS = {".mp3", ".wav", ".m4a", ".aac", ".flac", ".ogg"}
 _FINAL_VIDEO_PATTERN = re.compile(
@@ -2724,7 +2743,8 @@ def reset_subtitle_settings():
     """恢复 WebUI 字幕控件和持久化配置中的默认值。"""
     defaults = DEFAULT_SUBTITLE_SETTINGS
     st.session_state["subtitle_enabled_checkbox"] = defaults["subtitle_enabled"]
-    _set_stable_widget_value("font_name_select", defaults["font_name"])
+    default_font = default_subtitle_font(st.session_state.get("ui_language"), get_all_fonts())
+    _set_stable_widget_value("font_name_select", default_font)
     _set_stable_widget_value("subtitle_position_select", defaults["subtitle_position"])
     _set_stable_widget_value(
         "subtitle_display_mode_select", defaults["subtitle_display_mode"]
@@ -2763,7 +2783,9 @@ def reset_subtitle_settings():
         "subtitle_background_color",
         "rounded_subtitle_background",
     ):
-        if key in defaults:
+        if key == "font_name":
+            _set_runtime_config("ui", key, default_font)
+        elif key in defaults:
             _set_runtime_config("ui", key, defaults[key])
 
 
@@ -3229,10 +3251,46 @@ def _apply_pending_settings_preset():
     return True
 
 
+SHORTS_PRESET_OVERRIDES = {
+    "video_aspect": VideoAspect.portrait.value,
+    "video_clip_duration": 3,
+    "match_materials_to_script": True,
+    "bgm_type": "random",
+    "bgm_volume": 0.2,
+    "subtitle_enabled": True,
+    "subtitle_position": "center",
+    "font_size": 75,
+}
+
+
+def _build_shorts_preset_params(current_params, ui_language):
+    """Current settings with the vertical short-video style applied on top.
+
+    Script, subject and source choices are kept so the preset only changes
+    the look and pacing of the video.
+    """
+    preset = dict(current_params)
+    preset.update(SHORTS_PRESET_OVERRIDES)
+    preset["font_name"] = default_subtitle_font(ui_language, get_all_fonts())
+    return VideoParams.model_validate(preset).model_dump(mode="json")
+
+
 def _render_settings_transfer(params):
     """渲染生成参数预设的导出与导入入口。"""
     with st.expander(tr("Settings Preset"), expanded=False):
         st.caption(tr("Settings Preset Help"))
+        if st.button(
+            tr("Apply Shorts Preset"),
+            help=tr("Apply Shorts Preset Help"),
+            key="apply_shorts_preset_button",
+            use_container_width=True,
+            icon=":material/smartphone:",
+        ):
+            st.session_state["settings_preset_payload"] = _build_shorts_preset_params(
+                params.model_dump(mode="json"),
+                st.session_state.get("ui_language"),
+            )
+            st.rerun()
         preset_payload = _build_settings_preset_payload(
             params.model_dump(mode="json"), config.project_version
         )
@@ -5519,7 +5577,9 @@ def _render_local_script_generation(params):
             terms = llm.generate_terms(
                 params.video_subject,
                 script,
-                amount=8 if params.match_materials_to_script else 5,
+                amount=llm.recommended_term_count(
+                    script, params.match_materials_to_script
+                ),
                 match_script_order=params.match_materials_to_script,
                 app_config=app_config_snapshot,
             )
@@ -6027,7 +6087,10 @@ def _render_script_settings(panel, params):
                             lambda app_config_snapshot: llm.generate_terms(
                                 params.video_subject,
                                 params.video_script,
-                                amount=8 if params.match_materials_to_script else 5,
+                                amount=llm.recommended_term_count(
+                                    params.video_script,
+                                    params.match_materials_to_script,
+                                ),
                                 match_script_order=params.match_materials_to_script,
                                 app_config=app_config_snapshot,
                             ),
@@ -8668,7 +8731,8 @@ def _render_subtitle_settings(panel, params):
             subtitle_settings_disabled = not params.subtitle_enabled
             font_names = get_all_fonts()
             saved_font_name = config.ui.get(
-                "font_name", DEFAULT_SUBTITLE_SETTINGS["font_name"]
+                "font_name",
+                default_subtitle_font(st.session_state.get("ui_language"), font_names),
             )
             saved_font_name_index = 0
             if saved_font_name in font_names:
